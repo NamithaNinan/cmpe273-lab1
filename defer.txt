@@ -1,0 +1,14 @@
+ 
+Defer is basically used when we need to delay a function from execution for a while till the completion of another function. It is mainly used in cases where we need some resources to be freed before its execution.
+Panic on the other hand helps in error handling by causing a run time failure. This can be prevented by recover. It stops the panic from occuring by returning a value, this was passed on to panic when it had stopped its execution
+This usually occurs in cases of error from the programmers side and it can lead it to huge unrecoverable errors later.
+package main
+import "fmt"
+func main(){
+	defer func(){
+	example:=recover()
+	fmt.Println(example)
+	}()
+panic("oh no there's a problem")
+}
+
